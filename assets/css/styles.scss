@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Rubik", sans-serif;
+    background-color: #eee;
+}
+
+$border__radius__container: 8px;
+
+header {
+}
+
+main {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    @media (min-width: 992px) {
+        .main__container {
+            margin: 0 20px;
+        }
+    }
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr 2fr;
+        .most__read {
+            display: none;
+        }
+        .main__container {
+            margin: 0 20px;
+        }
+    }
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        .last__notices {
+            display: none;
+        }
+        .main__container {
+            margin: 0 10px;
+        }
+    }
+    aside.last__notices,
+    aside.most__read {
+        margin: 0 20px;
+        background-color: #ccc;
+        max-height: 700px;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        padding: 15px;
+        position: sticky;
+        top: 30px;
+        border-radius: $border__radius__container;
+        h3 {
+            font-size: 20px;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .container__most__read__articles .most__read__article,
+        .container__last__articles .last__article {
+            a {
+                display: block;
+                width: 100%;
+                text-decoration: none;
+                padding: 10px 12px;
+                transition: all 0.2s;
+                border-radius: 3px;
+                h4 {
+                    color: #333;
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+                p {
+                    color: #555;
+                    font-size: 13px;
+                }
+                &:hover {
+                    background-color: #eee;
+                }
+            }
+        }
+    }
+
+    .main__container {
+        /*  margin: 0 30px; */
+        article.post {
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            background-color: #fff;
+            border-radius: $border__radius__container;
+            margin-bottom: 20px;
+            min-height: 512px;
+            .top__section {
+                padding: 15px;
+                display: flex;
+                align-items: flex-start;
+
+                img {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 100%;
+                    object-fit: cover;
+                    margin-right: 10px;
+                }
+                &--text {
+                    h4 {
+                        font-weight: 500;
+                        color: #333;
+                        font-size: 17px;
+                    }
+                    p {
+                        font-weight: 400;
+                        color: #555;
+                        font-size: 15px;
+                    }
+                }
+            }
+            .body__section {
+                img {
+                    width: 100%;
+                    max-height: 400px;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+            .bottom__section {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                padding: 0 4px 4px 4px;
+                button {
+                    border-radius: 3px;
+                    border: none;
+                    padding: 15px 25px;
+                    font-size: 15px;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                    color: #999;
+                    background-color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    text-align: center;
+
+                    i {
+                        font-size: 22px;
+                        font-weight: lighter;
+                    }
+                    &.like__button {
+                        &:hover {
+                            background-color: #edd9d9;
+                            color: #dc1818;
+                        }
+                    }
+                    &.comment__button {
+                        margin: 0 5px;
+                        &:hover {
+                            background-color: #dbedec;
+                            color: #6ae0d7;
+                        }
+                    }
+                    &.share__button {
+                        &:hover {
+                            background-color: #dddeee;
+                            color: #3b49df;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

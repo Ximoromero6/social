@@ -1,0 +1,226 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  background-color: #eee;
+}
+
+main {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr 1fr;
+      grid-template-columns: 1fr 2fr 1fr;
+}
+
+@media (min-width: 992px) {
+  main .main__container {
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  main {
+    -ms-grid-columns: 1fr 2fr;
+        grid-template-columns: 1fr 2fr;
+  }
+  main .most__read {
+    display: none;
+  }
+  main .main__container {
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  main .last__notices {
+    display: none;
+  }
+  main .main__container {
+    margin: 0 10px;
+  }
+}
+
+main aside.last__notices,
+main aside.most__read {
+  margin: 0 20px;
+  background-color: #ccc;
+  max-height: 700px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 15px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 30px;
+  border-radius: 8px;
+}
+
+main aside.last__notices h3,
+main aside.most__read h3 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+main aside.last__notices .container__most__read__articles .most__read__article a,
+main aside.last__notices .container__last__articles .last__article a,
+main aside.most__read .container__most__read__articles .most__read__article a,
+main aside.most__read .container__last__articles .last__article a {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  padding: 10px 12px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  border-radius: 3px;
+}
+
+main aside.last__notices .container__most__read__articles .most__read__article a h4,
+main aside.last__notices .container__last__articles .last__article a h4,
+main aside.most__read .container__most__read__articles .most__read__article a h4,
+main aside.most__read .container__last__articles .last__article a h4 {
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+main aside.last__notices .container__most__read__articles .most__read__article a p,
+main aside.last__notices .container__last__articles .last__article a p,
+main aside.most__read .container__most__read__articles .most__read__article a p,
+main aside.most__read .container__last__articles .last__article a p {
+  color: #555;
+  font-size: 13px;
+}
+
+main aside.last__notices .container__most__read__articles .most__read__article a:hover,
+main aside.last__notices .container__last__articles .last__article a:hover,
+main aside.most__read .container__most__read__articles .most__read__article a:hover,
+main aside.most__read .container__last__articles .last__article a:hover {
+  background-color: #eee;
+}
+
+main .main__container {
+  /*  margin: 0 30px; */
+}
+
+main .main__container article.post {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  min-height: 512px;
+}
+
+main .main__container article.post .top__section {
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+main .main__container article.post .top__section img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 10px;
+}
+
+main .main__container article.post .top__section--text h4 {
+  font-weight: 500;
+  color: #333;
+  font-size: 17px;
+}
+
+main .main__container article.post .top__section--text p {
+  font-weight: 400;
+  color: #555;
+  font-size: 15px;
+}
+
+main .main__container article.post .body__section img {
+  width: 100%;
+  max-height: 400px;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+main .main__container article.post .bottom__section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  padding: 0 4px 4px 4px;
+}
+
+main .main__container article.post .bottom__section button {
+  border-radius: 3px;
+  border: none;
+  padding: 15px 25px;
+  font-size: 15px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  color: #999;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+main .main__container article.post .bottom__section button i {
+  font-size: 22px;
+  font-weight: lighter;
+}
+
+main .main__container article.post .bottom__section button.like__button:hover {
+  background-color: #edd9d9;
+  color: #dc1818;
+}
+
+main .main__container article.post .bottom__section button.comment__button {
+  margin: 0 5px;
+}
+
+main .main__container article.post .bottom__section button.comment__button:hover {
+  background-color: #dbedec;
+  color: #6ae0d7;
+}
+
+main .main__container article.post .bottom__section button.share__button:hover {
+  background-color: #dddeee;
+  color: #3b49df;
+}
+/*# sourceMappingURL=styles.css.map */
