@@ -12,7 +12,84 @@ body {
 
 $border__radius__container: 8px;
 
-header {}
+a,
+button {
+    &:focus {
+        outline: 1px dashed #ccc;
+    }
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    margin: 0 auto 20px auto;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+
+    .container__nav {
+        max-width: 1400px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+        padding: 5px 20px;
+
+        a.logo {
+            text-decoration: none;
+            font-size: 30px;
+            font-weight: bold;
+            color: #555;
+            font-style: italic;
+        }
+
+        nav.menu {
+            ul {
+                display: flex;
+                align-items: center;
+
+                li {
+                    list-style: none;
+
+                    a {
+                        text-decoration: none;
+                        color: #333;
+                        font-weight: normal;
+                        padding: 15px;
+                        display: flex;
+                        align-items: center;
+                        transition: all .2s;
+                        border-radius: 6px;
+
+                        i {
+                            margin-right: 10px;
+                            color: #333;
+                        }
+
+                        span {}
+
+                        &:hover {
+                            background-color: #efefef;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* Estilos responsive */
+
+    @media(max-width: 992px) {
+        margin: 0 20px 20px 20px;
+        border-radius: 0 0 $border__radius__container $border__radius__container;
+    }
+
+    @media(max-width: 768px) {
+        display: none;
+    }
+
+}
 
 main {
     max-width: 1400px;
@@ -21,44 +98,14 @@ main {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
 
-    @media (min-width: 992px) {
-        .main__container {
-            margin: 0 20px;
-        }
-    }
-
-    @media (max-width: 992px) {
-        grid-template-columns: 1fr 2fr;
-
-        .most__read {
-            display: none;
-        }
-
-        .main__container {
-            margin: 0 20px;
-        }
-    }
-
-    @media (max-width: 768px) {
-        grid-template-columns: 1fr;
-
-        .last__notices {
-            display: none;
-        }
-
-        .main__container {
-            margin: 0 10px;
-        }
-    }
-
     aside.last__notices,
     aside.most__read {
         margin: 0 20px;
         max-height: 500px;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
         padding: 15px;
         position: sticky;
-        top: 30px;
+        top: 80px;
         border-radius: $border__radius__container;
 
         h3 {
@@ -99,7 +146,7 @@ main {
     .main__container {
 
         article.post {
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
             background-color: #fff;
             border-radius: $border__radius__container;
             margin-bottom: 20px;
@@ -111,15 +158,15 @@ main {
                 align-items: flex-start;
 
                 img {
-                    width: 50px;
+                    width: 50px !important;
                     height: 50px;
                     border-radius: 100%;
                     object-fit: cover;
-                    margin-right: 10px;
                 }
 
                 &--text {
-                    width: 100%;
+                    margin-left: 10px;
+                    flex: 1;
 
                     h4 {
                         font-weight: 500;
@@ -157,7 +204,7 @@ main {
                 button {
                     border-radius: 0;
                     border: none;
-                    padding: 10px 15px;
+                    padding: 15px;
                     font-size: 15px;
                     cursor: pointer;
                     transition: all 0.2s;
@@ -170,8 +217,14 @@ main {
                     text-align: center;
 
                     i {
-                        font-size: 22px;
+                        font-size: 17px;
                         font-weight: lighter;
+                    }
+
+                    span {
+                        font-size: 15px;
+                        margin-left: 10px;
+                        /* font-weight: bold; */
                     }
 
                     &.like__button {
@@ -201,6 +254,48 @@ main {
                     }
                 }
             }
+        }
+    }
+
+    /* Estilos responsive */
+
+    @media (min-width: 992px) {
+        .main__container {
+            margin: 0 20px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        aside.last__notices {
+            margin-right: 0;
+        }
+
+        aside.most__read {
+            margin-left: 0;
+        }
+    }
+
+    @media (max-width: 992px) {
+        grid-template-columns: 1fr 2fr;
+
+        .most__read {
+            display: none;
+        }
+
+        .main__container {
+            margin: 0 20px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+
+        .last__notices {
+            display: none;
+        }
+
+        .main__container {
+            margin: 0 10px;
         }
     }
 }

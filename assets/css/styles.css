@@ -10,6 +10,98 @@ body {
   font-family: "Rubik", sans-serif;
 }
 
+a:focus,
+button:focus {
+  outline: 1px dashed #ccc;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  margin: 0 auto 20px auto;
+  background-color: #fff;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  /* Estilos responsive */
+}
+
+header .container__nav {
+  max-width: 1400px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  padding: 5px 20px;
+}
+
+header .container__nav a.logo {
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: bold;
+  color: #555;
+  font-style: italic;
+}
+
+header .container__nav nav.menu ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .container__nav nav.menu ul li {
+  list-style: none;
+}
+
+header .container__nav nav.menu ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: normal;
+  padding: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+  border-radius: 6px;
+}
+
+header .container__nav nav.menu ul li a i {
+  margin-right: 10px;
+  color: #333;
+}
+
+header .container__nav nav.menu ul li a:hover {
+  background-color: #efefef;
+}
+
+@media (max-width: 992px) {
+  header {
+    margin: 0 20px 20px 20px;
+    border-radius: 0 0 8px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    display: none;
+  }
+}
+
 main {
   max-width: 1400px;
   width: 100%;
@@ -18,50 +110,19 @@ main {
   display: grid;
   -ms-grid-columns: 1fr 2fr 1fr;
       grid-template-columns: 1fr 2fr 1fr;
-}
-
-@media (min-width: 992px) {
-  main .main__container {
-    margin: 0 20px;
-  }
-}
-
-@media (max-width: 992px) {
-  main {
-    -ms-grid-columns: 1fr 2fr;
-        grid-template-columns: 1fr 2fr;
-  }
-  main .most__read {
-    display: none;
-  }
-  main .main__container {
-    margin: 0 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  main {
-    -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-  }
-  main .last__notices {
-    display: none;
-  }
-  main .main__container {
-    margin: 0 10px;
-  }
+  /* Estilos responsive */
 }
 
 main aside.last__notices,
 main aside.most__read {
   margin: 0 20px;
   max-height: 500px;
-  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   padding: 15px;
   position: -webkit-sticky;
   position: sticky;
-  top: 30px;
+  top: 80px;
   border-radius: 8px;
 }
 
@@ -111,8 +172,8 @@ main aside.most__read .container__last__articles .last__article a:hover {
 }
 
 main .main__container article.post {
-  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+          box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   background-color: #fff;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -130,16 +191,18 @@ main .main__container article.post .top__section {
 }
 
 main .main__container article.post .top__section img {
-  width: 50px;
+  width: 50px !important;
   height: 50px;
   border-radius: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  margin-right: 10px;
 }
 
 main .main__container article.post .top__section--text {
-  width: 100%;
+  margin-left: 10px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 main .main__container article.post .top__section--text h4 {
@@ -190,7 +253,7 @@ main .main__container article.post .bottom__section {
 main .main__container article.post .bottom__section button {
   border-radius: 0;
   border: none;
-  padding: 10px 15px;
+  padding: 15px;
   font-size: 15px;
   cursor: pointer;
   -webkit-transition: all 0.2s;
@@ -211,8 +274,14 @@ main .main__container article.post .bottom__section button {
 }
 
 main .main__container article.post .bottom__section button i {
-  font-size: 22px;
+  font-size: 17px;
   font-weight: lighter;
+}
+
+main .main__container article.post .bottom__section button span {
+  font-size: 15px;
+  margin-left: 10px;
+  /* font-weight: bold; */
 }
 
 main .main__container article.post .bottom__section button.like__button {
@@ -236,6 +305,47 @@ main .main__container article.post .bottom__section button.share__button {
 main .main__container article.post .bottom__section button.share__button:hover {
   background-color: #dddeee;
   color: #3b49df;
+}
+
+@media (min-width: 992px) {
+  main .main__container {
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  main aside.last__notices {
+    margin-right: 0;
+  }
+  main aside.most__read {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 992px) {
+  main {
+    -ms-grid-columns: 1fr 2fr;
+        grid-template-columns: 1fr 2fr;
+  }
+  main .most__read {
+    display: none;
+  }
+  main .main__container {
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  main {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  main .last__notices {
+    display: none;
+  }
+  main .main__container {
+    margin: 0 10px;
+  }
 }
 
 .skeleton {
