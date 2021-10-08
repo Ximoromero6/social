@@ -8,7 +8,6 @@
 
 body {
   font-family: "Rubik", sans-serif;
-  background-color: #eee;
 }
 
 main {
@@ -56,10 +55,9 @@ main {
 main aside.last__notices,
 main aside.most__read {
   margin: 0 20px;
-  background-color: #ccc;
-  max-height: 700px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  max-height: 500px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   padding: 15px;
   position: -webkit-sticky;
   position: sticky;
@@ -69,10 +67,10 @@ main aside.most__read {
 
 main aside.last__notices h3,
 main aside.most__read h3 {
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 500;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 main aside.last__notices .container__most__read__articles .most__read__article a,
@@ -112,13 +110,9 @@ main aside.most__read .container__last__articles .last__article a:hover {
   background-color: #eee;
 }
 
-main .main__container {
-  /*  margin: 0 30px; */
-}
-
 main .main__container article.post {
-  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  -webkit-box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+          box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   background-color: #fff;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -144,6 +138,10 @@ main .main__container article.post .top__section img {
   margin-right: 10px;
 }
 
+main .main__container article.post .top__section--text {
+  width: 100%;
+}
+
 main .main__container article.post .top__section--text h4 {
   font-weight: 500;
   color: #333;
@@ -156,9 +154,22 @@ main .main__container article.post .top__section--text p {
   font-size: 15px;
 }
 
+main .main__container article.post .body__section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
 main .main__container article.post .body__section img {
+  background-color: #eee;
   width: 100%;
-  max-height: 400px;
+  min-height: 400px;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
@@ -174,13 +185,12 @@ main .main__container article.post .bottom__section {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  padding: 0 4px 4px 4px;
 }
 
 main .main__container article.post .bottom__section button {
-  border-radius: 3px;
+  border-radius: 0;
   border: none;
-  padding: 15px 25px;
+  padding: 10px 15px;
   font-size: 15px;
   cursor: pointer;
   -webkit-transition: all 0.2s;
@@ -205,13 +215,13 @@ main .main__container article.post .bottom__section button i {
   font-weight: lighter;
 }
 
+main .main__container article.post .bottom__section button.like__button {
+  border-radius: 0 0 0 8px;
+}
+
 main .main__container article.post .bottom__section button.like__button:hover {
   background-color: #edd9d9;
   color: #dc1818;
-}
-
-main .main__container article.post .bottom__section button.comment__button {
-  margin: 0 5px;
 }
 
 main .main__container article.post .bottom__section button.comment__button:hover {
@@ -219,8 +229,48 @@ main .main__container article.post .bottom__section button.comment__button:hover
   color: #6ae0d7;
 }
 
+main .main__container article.post .bottom__section button.share__button {
+  border-radius: 0 0 8px 0;
+}
+
 main .main__container article.post .bottom__section button.share__button:hover {
   background-color: #dddeee;
   color: #3b49df;
+}
+
+.skeleton {
+  opacity: .7;
+  -webkit-animation: skeleton-loading 1s linear infinite alternate;
+          animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton.skeleton__text {
+  width: 100%;
+  height: 0.5rem;
+  margin-bottom: 0.25rem;
+  border-radius: .125rem;
+}
+
+.skeleton.skeleton__text:last-child {
+  margin-bottom: 0;
+  width: 80%;
+}
+
+@-webkit-keyframes skeleton-loading {
+  from {
+    background-color: #a3b8c2;
+  }
+  to {
+    background-color: #f0f3f5;
+  }
+}
+
+@keyframes skeleton-loading {
+  from {
+    background-color: #a3b8c2;
+  }
+  to {
+    background-color: #f0f3f5;
+  }
 }
 /*# sourceMappingURL=styles.css.map */

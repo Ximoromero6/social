@@ -8,13 +8,11 @@
 
 body {
     font-family: "Rubik", sans-serif;
-    background-color: #eee;
 }
 
 $border__radius__container: 8px;
 
-header {
-}
+header {}
 
 main {
     max-width: 1400px;
@@ -22,45 +20,54 @@ main {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
+
     @media (min-width: 992px) {
         .main__container {
             margin: 0 20px;
         }
     }
+
     @media (max-width: 992px) {
         grid-template-columns: 1fr 2fr;
+
         .most__read {
             display: none;
         }
+
         .main__container {
             margin: 0 20px;
         }
     }
+
     @media (max-width: 768px) {
         grid-template-columns: 1fr;
+
         .last__notices {
             display: none;
         }
+
         .main__container {
             margin: 0 10px;
         }
     }
+
     aside.last__notices,
     aside.most__read {
         margin: 0 20px;
-        background-color: #ccc;
-        max-height: 700px;
-        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+        max-height: 500px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
         padding: 15px;
         position: sticky;
         top: 30px;
         border-radius: $border__radius__container;
+
         h3 {
-            font-size: 20px;
+            font-size: 25px;
             font-weight: 500;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
+
         .container__most__read__articles .most__read__article,
         .container__last__articles .last__article {
             a {
@@ -70,15 +77,18 @@ main {
                 padding: 10px 12px;
                 transition: all 0.2s;
                 border-radius: 3px;
+
                 h4 {
                     color: #333;
                     font-size: 16px;
                     font-weight: 500;
                 }
+
                 p {
                     color: #555;
                     font-size: 13px;
                 }
+
                 &:hover {
                     background-color: #eee;
                 }
@@ -87,13 +97,14 @@ main {
     }
 
     .main__container {
-        /*  margin: 0 30px; */
+
         article.post {
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
             background-color: #fff;
             border-radius: $border__radius__container;
             margin-bottom: 20px;
             min-height: 512px;
+
             .top__section {
                 padding: 15px;
                 display: flex;
@@ -106,12 +117,16 @@ main {
                     object-fit: cover;
                     margin-right: 10px;
                 }
+
                 &--text {
+                    width: 100%;
+
                     h4 {
                         font-weight: 500;
                         color: #333;
                         font-size: 17px;
                     }
+
                     p {
                         font-weight: 400;
                         color: #555;
@@ -119,23 +134,30 @@ main {
                     }
                 }
             }
+
             .body__section {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+
                 img {
+                    background-color: #eee;
                     width: 100%;
-                    max-height: 400px;
+                    min-height: 400px;
                     height: 100%;
                     object-fit: cover;
                 }
             }
+
             .bottom__section {
                 display: flex;
                 align-items: center;
                 justify-content: space-evenly;
-                padding: 0 4px 4px 4px;
+
                 button {
-                    border-radius: 3px;
+                    border-radius: 0;
                     border: none;
-                    padding: 15px 25px;
+                    padding: 10px 15px;
                     font-size: 15px;
                     cursor: pointer;
                     transition: all 0.2s;
@@ -151,20 +173,27 @@ main {
                         font-size: 22px;
                         font-weight: lighter;
                     }
+
                     &.like__button {
+                        border-radius: 0 0 0 $border__radius__container;
+
                         &:hover {
                             background-color: #edd9d9;
                             color: #dc1818;
                         }
                     }
+
                     &.comment__button {
-                        margin: 0 5px;
+
                         &:hover {
                             background-color: #dbedec;
                             color: #6ae0d7;
                         }
                     }
+
                     &.share__button {
+                        border-radius: 0 0 $border__radius__container 0;
+
                         &:hover {
                             background-color: #dddeee;
                             color: #3b49df;
@@ -173,5 +202,32 @@ main {
                 }
             }
         }
+    }
+}
+
+.skeleton {
+    opacity: .7;
+    animation: skeleton-loading 1s linear infinite alternate;
+
+    &.skeleton__text {
+        width: 100%;
+        height: 0.5rem;
+        margin-bottom: 0.25rem;
+        border-radius: .125rem;
+
+        &:last-child {
+            margin-bottom: 0;
+            width: 80%;
+        }
+    }
+}
+
+@keyframes skeleton-loading {
+    from {
+        background-color: hsl(200, 20%, 70%);
+    }
+
+    to {
+        background-color: hsl(200, 20%, 95%);
     }
 }
