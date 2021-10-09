@@ -186,12 +186,23 @@ main {
                 display: flex;
                 align-items: center;
                 justify-content: space-evenly;
+                flex-direction: column;
+
+                .description {
+                    width: 100%;
+                    padding: 0 15px 15px 15px;
+
+                    p {
+                        font-size: 14px;
+                        color: #444;
+                        line-height: 18px;
+                    }
+                }
 
                 img {
                     background-color: #eee;
                     width: 100%;
-                    min-height: 400px;
-                    height: 100%;
+                    height: 400px;
                     object-fit: cover;
                 }
             }
@@ -314,6 +325,7 @@ main {
             margin-bottom: 0;
             width: 80%;
         }
+
     }
 }
 
