@@ -5,9 +5,9 @@
         post__template = document.getElementById("post__template"),
         API_KEY = "563492ad6f9170000100000120c4713381704856b73e53642541346a",
         URL__PROFILE = "https://api.pexels.com/v1/search?query=profile",
-        URL__IMAGES = "https://api.pexels.com/v1/search?query=rome";
+        URL__IMAGES = "https://api.pexels.com/v1/search?query=paris";
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 15; i++) {
         main__container.append(post__template.content.cloneNode(true));
     }
 
@@ -27,33 +27,43 @@
 
     const allData = Promise.all([fetchReq1, fetchReq2, fetchReq3]);
 
-    allData.then((response) => {
-        console.log(response);
-        main__container.innerHTML = "";
+    setTimeout(() => {
+        allData.then((response) => {
+            console.log(response);
 
-        response[0].forEach((data) => {
-            const div = post__template.content.cloneNode(true);
+            main__container.innerHTML = "";
 
-            div.querySelector(".top__section .top__section--text").innerHTML = `
-                <h4>${data.name}</h4>
-                <p>${data.job} at ${data.company}</p>
-            `;
+            for (let i = 0; i < response[1].photos.length; i++) {
+                const div = post__template.content.cloneNode(true);
 
-            div.querySelector(".body__section .description").innerHTML = `
-                <p>${data.description}</p>
-            `;
+                let data__text = response[0][i];
 
-            response[1].photos.forEach((data) => {
-                div.querySelector(".top__section > img").src = data.src.original;
-            });
+                /* Añadimos el nombre, el puesto y la compañia */
+                div.querySelector(".top__section .top__section--text").innerHTML = `
+                    <h4>${data__text.name}</h4>
+                    <p>${data__text.job} at ${data__text.company}</p>
+                `;
 
-            response[2].photos.forEach((data) => {
-                div.querySelector(".body__section > img").src = data.src.original;
-            });
+                /* Añadimos la descripción */
+                div.querySelector(".body__section--description").innerHTML = `
+                    <p>${data__text.description}</p>
+                `;
 
-            main__container.append(div);
+                /* Añadimos la foto de perfil */
+                div.querySelector(".top__section--image").innerHTML = `
+                    <img src="${response[1].photos[i].src.landscape}" alt="">
+                `;
+
+                /* Añadimos la foto de fondo */
+                div.querySelector(".body__section--image").innerHTML = `
+                    <img src="${response[2].photos[i].src.landscape}" alt="">
+                `;
+
+                main__container.append(div);
+
+            }
+
         });
-
-    });
+    }, 4000);
 
 })();
